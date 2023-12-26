@@ -2,6 +2,8 @@
 
 source .env
 
+new_directory="Weather App"
+
 green_echo() {
     echo -e "\e[32m$1\e[0m"
 }
@@ -21,6 +23,13 @@ sudo apt update && sudo apt upgrade -y
 #------------
 green_echo "Installing Git..."
 sudo apt install git -y
+
+#---------------------------------------------
+# Create and Cd into new directory for the app
+#---------------------------------------------
+mkdir -p /home/vagrant/"$new_directory" && \
+chmod 700 /home/vagrant/"$new_directory" && \
+cd /home/vagrant/"$new_directory" || exit
 
 #---------------
 # Clone Git repo
