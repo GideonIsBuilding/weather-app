@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 source .env
+source SSH
 
 new_directory="Weather App"
 
@@ -35,7 +36,7 @@ cd /home/vagrant/"$new_directory" || exit
 # Clone Git repo
 #---------------
 green_echo "Cloning Git repo..."
-git clone https://github.com/GideonIsBuilding/weather-app.git
+git clone https://"$key"@github.com/GideonIsBuilding/weather-app.git
 
 #-----------------------------------------------
 # Check if Python3 is installed, else install it
