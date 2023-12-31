@@ -29,7 +29,7 @@ sudo apt install git -y
 # Create and Cd into new directory for the app
 #---------------------------------------------
 mkdir -p /home/vagrant/"$new_directory" && \
-chmod 700 /home/vagrant/"$new_directory" && \
+chmod 774 /home/vagrant/"$new_directory" && \
 cd /home/vagrant/"$new_directory" || exit
 
 #---------------
