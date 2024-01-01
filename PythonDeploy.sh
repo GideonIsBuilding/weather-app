@@ -3,7 +3,9 @@
 source .env
 source get_ssh_vars.sh
 
-new_directory="Weather App"
+read -p "Enter the desired directory name for the app: " new_directory
+
+# new_directory="Weather App"
 
 green_echo() {
     echo -e "\e[32m$1\e[0m"
