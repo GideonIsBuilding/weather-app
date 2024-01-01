@@ -1,2 +1,2 @@
 .env
-SSH
+get_ssh_vars.sh

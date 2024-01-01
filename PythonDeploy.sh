@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 source .env
-source SSH
+source get_ssh_vars.sh
 
 new_directory="Weather App"
 
