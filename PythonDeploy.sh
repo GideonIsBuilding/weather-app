@@ -46,7 +46,7 @@ cd /home/vagrant/"$new_directory" || exit
 # Clone Git repo
 #---------------
 green_echo "Cloning Git repo..."
-# git clone https://"$key"@github.com/GideonIsBuilding/weather-app.git
+# git clone https://"$github_key"@github.com/GideonIsBuilding/weather-app.git
 git clone $repo_url $destination
 
 #-----------------------------------------------
@@ -58,6 +58,8 @@ if command -v python3 ---version &> /dev/null; then
     sudo apt install python3-pip
     green_echo "Installing tkinter for Python3..."
     sudo apt-get install python3-tk
+    green_echo "Installing the dotenv module..."
+    pip install python-dotenv
 else
     red_echo "Python3 is not installed. Now installing..."
     sudo apt install build-essential software-properties-common -y
@@ -65,6 +67,8 @@ else
     sudo apt update
     green_echo "Installing Python3, pip and tkinter for Python3..."
     sudo apt install python3.11 python3-pip python3-tk -y
+    green_echo "Installing the dotenv module..."
+    pip install python-dotenv
 fi
 
 #---------------------------------------------------
