@@ -1,11 +1,19 @@
 #!/usr/bin/bash
 
+#----------------------------------------------------------
+# Securely retrieve environment variables and SSH variables
+#----------------------------------------------------------
 source .env
 source get_ssh_vars.sh
 
 # read -p "Enter the desired directory name for the app: " new_directory
 
+#-----------------
+# Define variables
+#-----------------
 new_directory="Weather App"
+repo_url="https://github.com/GideonIsBuilding/weather-app.git"
+destination="/home/vagrant/"$new_directory""
 
 green_echo() {
     echo -e "\e[32m$1\e[0m"
@@ -38,7 +46,8 @@ cd /home/vagrant/"$new_directory" || exit
 # Clone Git repo
 #---------------
 green_echo "Cloning Git repo..."
-git clone https://"$key"@github.com/GideonIsBuilding/weather-app.git
+# git clone https://"$key"@github.com/GideonIsBuilding/weather-app.git
+git clone $repo_url $destination
 
 #-----------------------------------------------
 # Check if Python3 is installed, else install it
@@ -47,13 +56,15 @@ if command -v python3 ---version &> /dev/null; then
     green_echo "Python3 is installed and present"
     green_echo "Installing pip for Python3..."
     sudo apt install python3-pip
+    green_echo "Installing tkinter for Python3..."
+    sudo apt-get install python3-tk
 else
     red_echo "Python3 is not installed. Now installing..."
     sudo apt install build-essential software-properties-common -y
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt update
-    green_echo "Installing Python3 and pip for Python3..."
-    sudo apt install python3.11 python3-pip -y
+    green_echo "Installing Python3, pip and tkinter for Python3..."
+    sudo apt install python3.11 python3-pip python3-tk -y
 fi
 
 #---------------------------------------------------
