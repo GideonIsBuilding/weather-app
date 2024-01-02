@@ -21,11 +21,15 @@ api_key = os.environ.get("key")
 # Function fetches weather data from OpenWeatherMap API
 # ------------------------------------------------------
 def weather_updates(api_key, city):
-    target_url = "https://api.openweathermap.org/data/2.5/weather"  # Sets the base url for the OpenWeatherMap API
-    params = {"q": city, "appid": api_key, "units": "metric"}  # A dictionary of parameters for the API request
+    # Sets the base url for the OpenWeatherMap API
+    target_url = "https://api.openweathermap.org/data/2.5/weather"
+    # A dictionary of parameters for the API request
+    params = {"q": city, "appid": api_key, "units": "metric"}
     try:
-        weather_response = requests.get(target_url, params=params)  # Sends a get request to the api
-        data = weather_response.json()  # Passes the response content as JSON and stores it in the data variable
+        # Sends a get request to the api
+        weather_response = requests.get(target_url, params=params)
+        # Passes the response content as JSON and stores it in the data variable
+        data = weather_response.json()
 
         # ---------------------------------------------------------------------------------------------------------
         # Condition to check if the HTTP request is succesful and retuns the data. Returns an error message if not
@@ -41,10 +45,12 @@ def weather_updates(api_key, city):
     # Handle exception should any error occur
     # ----------------------------------------
     except requests.exceptions.RequestException as e:
-        messagebox.showerror("Network error", "An error occured during the request: {}".format(e))
+        messagebox.showerror(
+            "Network error", "An error occured during the request: {}".format(e))
         return None
     except json.JSONDecodeError as e:
-        messagebox.showerror("JSON decoding error", "Error decoding json response: {}".format(e))
+        messagebox.showerror("JSON decoding error",
+                             "Error decoding json response: {}".format(e))
         return None
 
 
@@ -111,7 +117,8 @@ city_entry.pack(pady=10)
 # ------------------------
 # Button to fetch weather
 # ------------------------
-get_weather_button = tk.Button(root, text="Get Weather", command=get_weather_for_city)
+get_weather_button = tk.Button(
+    root, text="Get Weather", command=get_weather_for_city)
 get_weather_button.pack(pady=10)
 
 # --------------------------
