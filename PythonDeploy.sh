@@ -29,6 +29,12 @@ red_echo() {
 green_echo "Updating and upgrading packages..."
 sudo apt update && sudo apt upgrade -y
 
+#-----------------------------------------------
+# Start and Enable Apache
+#-----------------------------------------------
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
 #------------
 # Install Git
 #------------
