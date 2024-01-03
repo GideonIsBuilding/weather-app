@@ -53,7 +53,7 @@ cd /home/vagrant/"$new_directory" || exit
 #---------------
 green_echo "Cloning Git repo..."
 # git clone https://"$github_key"@github.com/GideonIsBuilding/weather-app.git
-git clone $repo_url $destination
+sudo -u git clone $repo_url $destination
 
 #-----------------------------------------------
 # Check if Python3 is installed, else install it
