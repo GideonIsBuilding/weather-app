@@ -56,13 +56,13 @@ Vagrant.configure("2") do |config|
     # backing providers for Vagrant. These expose provider-specific options.
     # Example for VirtualBox:
     #
-    config.vm.provider "virtualbox" do |vb|
-      # Display the VirtualBox GUI when booting the machine
-      vb.gui = true
+    # config.vm.provider "virtualbox" do |vb|
+    #   # Display the VirtualBox GUI when booting the machine
+    #   vb.gui = true
     
-      # Customize the amount of memory on the VM:
-      vb.memory = "1024"
-    end
+    #   # Customize the amount of memory on the VM:
+    #   vb.memory = "1024"
+    # end
     #
     # View the documentation for the provider you are using for more
     # information on available options.
@@ -75,6 +75,6 @@ Vagrant.configure("2") do |config|
         master_config.vm.box = "ubuntu/focal64"
         master_config.vm.hostname = "Master"
         master_config.vm.network "private_network", ip: "192.168.56.5"
-        master_config.vm.provision "shell", path: "PythonDeploy.sh"
+        # master_config.vm.provision "shell", path: "PythonDeploy.sh"
     end 
 end
