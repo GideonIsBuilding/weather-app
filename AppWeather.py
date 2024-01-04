@@ -79,9 +79,9 @@ def validate_city(city):
     if not city or not city.strip():
         messagebox.showerror("Error", "Please enter a valid city name.")
         return False
-    # if not city.isalpha():
-    #     messagebox.showerror("Error", "City name must contain only letters.")
-    #     return False
+    if not city.isalpha():
+        messagebox.showerror("Error", "City name must contain only letters.")
+        return False
     return True
 
 
