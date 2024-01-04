@@ -30,9 +30,13 @@ green_echo "Updating and upgrading packages..."
 sudo apt update && sudo apt upgrade -y
 
 #-----------------------------------------------
-# Start and Enable Apache
+# Install, Start and Enable Apache
 #-----------------------------------------------
+green_echo "Installing Apache..."
+sudo apt install apache2
+green_echo "Starting Apache..."
 sudo systemctl start apache2
+green_echo "Enabling Apache..."
 sudo systemctl enable apache2
 
 #------------
@@ -61,9 +65,9 @@ sudo -u git clone $repo_url $destination
 if command -v python3 ---version &> /dev/null; then
     green_echo "Python3 is installed and present"
     green_echo "Installing pip for Python3..."
-    sudo apt install python3-pip
+    sudo apt install python3-pip -y
     green_echo "Installing tkinter for Python3..."
-    sudo apt-get install python3-tk
+    sudo apt-get install python3-tk -y
     green_echo "Installing the dotenv module..."
     pip install python-dotenv
 else
